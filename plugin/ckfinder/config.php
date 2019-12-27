@@ -1,4 +1,7 @@
 <?php
+require_once '../../../../../config.php';
+
+
 
 /*
  * CKFinder Configuration File
@@ -19,6 +22,7 @@ ini_set('display_errors', 0);
 
 /*============================ General Settings =======================================*/
 // http://docs.cksource.com/ckfinder3-php/configuration.html
+
 
 $config = array();
 
@@ -60,17 +64,28 @@ $config['images'] = array(
     )
 );
 
+
+/*=================================== Backends ========================================*/
+// http://docs.cksource.com/ckfinder3-php/configuration.html#configuration_options_backends
+/*
+    $baseUrl = BASE_URL.'upload/'; ---> Root
+    $baseUrl = BASE_URL.'upload/images/tuannc/'; ---> permission for each user
+*/
+
+$baseUrl = BASE_URL.'upload/';
+
 /*=================================== Backends ========================================*/
 // http://docs.cksource.com/ckfinder3-php/configuration.html#configuration_options_backends
 $config['backends'][] = array(
     'name'         => 'default',
     'adapter'      => 'local',
-    'baseUrl'      => './upload/',
+    'baseUrl'      => $baseUrl,
     //  'root'         => '', // Can be used to explicitly set the CKFinder user files directory.
     'chmodFiles'   => 0777,
     'chmodFolders' => 0755,
     'filesystemEncoding' => 'UTF-8',
 );
+
 
 /*================================ Resource Types =====================================*/
 // http://docs.cksource.com/ckfinder3-php/configuration.html#configuration_options_resourceTypes
@@ -95,6 +110,8 @@ $config['resourceTypes'][] = array(
     'backend'           => 'default'
 );
 
+
+
 /*================================ Access Control =====================================*/
 // http://docs.cksource.com/ckfinder3-php/configuration.html#configuration_options_roleSessionVar
 
@@ -104,7 +121,7 @@ $config['roleSessionVar'] = 'CKFinder_UserRole';
 $config['accessControl'][] = array(
     'role'                => '*',
     'resourceType'        => '*',
-    'folder'              => '/nd',
+    'folder'              => '/',
 
     'FOLDER_VIEW'         => true,
     'FOLDER_CREATE'       => true,

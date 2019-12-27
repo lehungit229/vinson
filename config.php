@@ -3,7 +3,7 @@ header('Content-Type: text/html; charset=utf-8');
 date_default_timezone_set('Asia/Ho_Chi_Minh');
 define('BACKEND_DIRECTORY', 'admin');
 define('AUTH', 'HTVIETNAM_');
-define('BASE_URL', 'http://ht.vinson.com/');
+define('BASE_URL', 'http://cms.bds.com/');
 define('HTSUFFIX', '.html');
 define('DEBUG', 0);
 define('COMPRESS', 0);
